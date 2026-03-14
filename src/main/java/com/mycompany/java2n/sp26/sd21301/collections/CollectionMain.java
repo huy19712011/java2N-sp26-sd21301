@@ -4,7 +4,9 @@ public class CollectionMain {
 
     public static void main(String[] args) {
 
-        CollectionDemo.show();
+        // CollectionDemo.show();
+
+        ListDemo.show();
     }
 
 }

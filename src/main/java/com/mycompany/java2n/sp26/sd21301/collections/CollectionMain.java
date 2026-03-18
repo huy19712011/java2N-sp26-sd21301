@@ -6,7 +6,9 @@ public class CollectionMain {
 
         // CollectionDemo.show();
 
-        ListDemo.show();
+        // ListDemo.show();
+
+        SetDemo.show();
     }
 
 }

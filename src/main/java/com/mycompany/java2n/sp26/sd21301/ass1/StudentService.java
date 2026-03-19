@@ -20,12 +20,19 @@ public class StudentService {
     public List<Student> getAllStudents() {
 
         //
-        return null;
+        return students;
     }
 
 
     // Tim kiem sv theo id  getById()
     public Student findStudentById(int id) {
+
+        for (Student student : students) {
+
+            if (student.getId() == id) {
+                return student;
+            }
+        }
 
         return null;
     }
@@ -33,11 +40,23 @@ public class StudentService {
 
     // Sua sv theo id  update()
     public boolean updateStudent(int id, String newName, int newAge) {
-        return true;
+
+        for (Student student : students) {
+
+            if (student.getId() == id) {
+                student.setName(newName);
+                student.setAge(newAge);
+
+                return true;
+            }
+        }
+        return false;
     }
 
     // Xoa sv theo id  delete()
     public boolean removeStudent(int id) {
-        return true;
+
+        return students.remove(findStudentById(id));
+
     }
 }

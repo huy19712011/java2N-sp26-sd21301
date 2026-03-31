@@ -7,7 +7,7 @@ public class JdbcMain {
 
     public static void main(String[] args) {
 
-        DatabaseConnectionManager dcm = new DatabaseConnectionManager("java2N_sp26", "sa", "123456");
+        DatabaseConnectionManager dcm = new DatabaseConnectionManager("java2N_sp26_sd21301", "sa", "123456");
 
         try (Connection connection = dcm.getConnection()) {
 

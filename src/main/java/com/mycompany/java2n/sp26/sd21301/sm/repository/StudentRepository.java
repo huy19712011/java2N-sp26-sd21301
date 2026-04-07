@@ -42,7 +42,6 @@ public class StudentRepository {
                 students.add(new Student(resultSet.getInt("Id"), resultSet.getString("Name"), resultSet.getInt("Age")));
             }
 
-
         } catch (Exception e) {
 
             e.printStackTrace();
@@ -74,6 +73,59 @@ public class StudentRepository {
         }
 
         return students;
+    }
+
+    //3.
+    public void create(Student student) throws SQLException {
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+
+            connection = dcm.getConnection();
+
+            statement = connection.prepareStatement(CREATE_SQL);
+
+            statement.setInt(1, student.getId());
+            statement.setString(2, student.getName());
+            statement.setInt(3, student.getAge());
+
+            statement.executeUpdate();
+
+            System.out.println("Done...");
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        } finally {
+
+            // close
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+        }
+
     }
 
 }

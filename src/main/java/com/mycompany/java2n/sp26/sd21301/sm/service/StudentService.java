@@ -14,4 +14,14 @@ public class StudentService {
         return repo.findAll();
     }
 
+    //3.
+    public void create(Student student) throws Exception {
+
+        if (student.getAge() < 15) {
+            throw new IllegalArgumentException("Age must be >= 15");
+        }
+
+        repo.create(student);
+    }
+
 }

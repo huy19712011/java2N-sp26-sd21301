@@ -1,5 +1,6 @@
 package com.mycompany.java2n.sp26.sd21301.sm.controller;
 
+import com.mycompany.java2n.sp26.sd21301.sm.entity.Student;
 import com.mycompany.java2n.sp26.sd21301.sm.service.StudentService;
 import java.util.Scanner;
 
@@ -18,6 +19,17 @@ public class StudentController {
 
             switch (choice) {
 
+                case 1:
+                    System.out.print("Enter Id: ");
+                    int id1 = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Enter Name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Enter Age: ");
+                    int age = scanner.nextInt();
+                    service.create(new Student(id1, name, age));
+                    System.out.println("Student added!");
+                    break;
                 case 3:
                     service.findAll().forEach(student -> System.out.println(student));
                     break;

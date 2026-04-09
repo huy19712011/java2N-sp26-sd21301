@@ -128,4 +128,55 @@ public class StudentRepository {
 
     }
 
+    //4. update
+    public void update(Student student) throws SQLException {
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+
+            connection = dcm.getConnection();
+
+            statement = connection.prepareStatement(UPDATE_SQL);
+
+            statement.setString(1, student.getName());
+            statement.setInt(2, student.getAge());
+            statement.setInt(3, student.getId());
+
+            statement.executeUpdate();
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        } finally {
+
+            // close
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+        }
+    }
+
 }

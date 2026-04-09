@@ -33,6 +33,16 @@ public class StudentController {
                 case 3:
                     service.findAll().forEach(student -> System.out.println(student));
                     break;
+                case 4:
+                    System.out.print("Enter Id: ");
+                    int uid = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Enter new name: ");
+                    String newName = scanner.nextLine();
+                    System.out.println("Enter new age: ");
+                    int newAge = scanner.nextInt();
+                    service.update(new Student(uid, newName, newAge));
+                    break;
                 case 6:
                     return;
             }

@@ -24,4 +24,10 @@ public class StudentService {
         repo.create(student);
     }
 
+    //4.
+    public void update(Student student) throws Exception{
+
+        repo.update(student);
+    }
+
 }

@@ -39,7 +39,7 @@ public class StudentController {
                     scanner.nextLine();
                     System.out.print("Enter new name: ");
                     String newName = scanner.nextLine();
-                    System.out.println("Enter new age: ");
+                    System.out.print("Enter new age: ");
                     int newAge = scanner.nextInt();
                     service.update(new Student(uid, newName, newAge));
                     break;

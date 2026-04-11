@@ -17,7 +17,7 @@ public class StudentRepository {
     String FIND_ALL_SQL = "SELECT * FROM students";
     String FIND_BY_ID_SQL = "SELECT * FROM students WHERE Id=?";
     String CREATE_SQL = "INSERT INTO students(Id, Name, Age) VALUES(?, ?, ?)";
-    String UPDATE_SQL = "UPDATE students SET Name=, Age=? WHERE Id=?";
+    String UPDATE_SQL = "UPDATE students SET Name=?, Age=? WHERE Id=?";
     String DELETE_SQL = "DELETE FROM students WHERE Id=?";
 
     //1.
